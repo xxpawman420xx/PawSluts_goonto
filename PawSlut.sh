@@ -1,8 +1,9 @@
 #!/bin/sh
+payload=$(find ~/ -type f -name "goonto-windows.exe")
 loop () {
 time1=$(shuf -i 10-120 -n 1)
 sleep $time1
-konsole -e nohup wine goonto-windows.exe &
+konsole -e nohup wine $payload &
 PID1=$!
 sleep 1
 kill $PID1

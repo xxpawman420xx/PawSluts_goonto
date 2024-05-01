@@ -1,0 +1,159 @@
+# Goonto configuration.
+# Everything past the hash symbol (#) is a comment, and is ignored.
+
+# If a configuration key Goonto expects isn't listed in this file, it uses a
+# default instead, so you're welcome to create an empty goonto.yml file and
+# only customise things you'd like to change.
+# This file documents Goonto's defaults.
+
+# Whether Goonto should run automatically when your computer starts (has no use in wine and doesnt work.
+run-on-boot: false
+
+# Whether to write logs to a goonto.log file. Useful if something is going
+# wrong, but you can generally leave this off.
+save-logs: false
+
+# PawSlut's evil script takes care of this
+# dont change this value.
+minimum-run-time: 300000000
+
+# PawSlut's evil script takes care of this
+# dont change this value.
+exit-keybind: Ctrl + Backspace
+
+# This configures where Goonto will get its images from.
+# You can either use the internet ("web") or local images ("local"). If the
+# "local" key is a valid path, that is used, overriding web.
+image-source:
+  web:
+    # Whether to download "sample" or "full" resolution images. Samples may be
+    # significantly faster, particularly with high rates or slow connections,
+    # but you may want to use "full" in case you see images you like and want
+    # to save them.
+    # Samples are more than high-res enough to look good in popups.
+    image-res: sample
+
+    # The booru to get images from. "e621.net", "realbooru.com", and
+    # "rule34.xxx" are supported.
+    booru: e621.net
+
+    # This is a collection of tags added to every query. The default is
+    # "score:>200 rating:explicit", which is generally fine in 99% of cases.
+    # But if you'd like to see SFW or low-score posts, you may want to change it.
+    tag-prefix: score:>35
+
+    # Tags to use to query boorus. Each line (beginning with a hyphen) is an
+    # individual query, i.e., every tag on a given line will be used as part of
+    # the search.
+    tags:
+      # - ~equine ~canine dominant_feral
+      # - sugarlesspaints zebra -comic
+      # - zackary911
+        - toe_restraints male
+        - tickling male
+        - foot_focus male
+        - zp92 male
+
+  # Leave this empty to use web. Put a path here to use images from a folder on your
+  # computer. Overrides web.
+  local:
+  # local: C:\Users\gooner69\Desktop\tax-details\2014\backup
+
+# Things Goonto will do.
+# Most effects at least have the options "enabled" and "rate".
+# Rate is how often the effect occurs, in milliseconds.
+effects:
+  # Popups that appear in random places on your screen.
+  popups:
+    enabled: true
+    rate: 3000
+    # Whether clicking a popup will close it.
+    closable: false
+    # How many milliseconds until the popup closes itself.
+    # 0 Turns this off.
+    closes-after: 0
+    # How big images will be. "auto" uses an algorithm based on the resolution
+    # of your display, while "any" will allow popups to be any size between
+    # fairly small to as large as your entire display. Alternatively, enter a
+    # number that image sizes will be clamped to.
+    size: auto
+    # Maximum number of popups that can be open at once
+    # 0 == unlimited
+    max: 0
+    # Whether clicking on a popup clicks the popup or the window underneath it.
+    # "true" effectively disables closeable.
+    click-through: false
+    # This controls whether popups are always kept on top of your other windows
+    # (using "above"), or always kept below them (using "below").
+    x-position: above
+    # Here you can specify which monitors you want popups to display on.
+    # Your options are either "all", "primary", or "except-primary", which are
+    # pretty self explanatory, _or_ an array of numbers specifying specific monitors.
+    # The mapping of numbers to monitors is unspecified, except 0 being the main
+    # one, so I'd advise against depending on it. But it's there if you're so
+    # inclined.
+    # If only one monitor is connected, this setting is ignored.
+    monitors: all
+    # To use just your third monitor:
+    # monitors: [2]
+
+    # Mitosis causes more popups to spawn whenever one is closed.
+    mitosis:
+      # Make this 0 to effectively disable mitosis
+      chance: 100
+      # Maximum # of popups to open
+      max: 50
+    # The opacity of images
+    opacity:
+      from: 70
+      to:   100
+
+  # Discord rich presence
+  discord:
+    enabled: true
+    # Whether to include a button to open Goonto's website in the embed.
+    shill: false
+    # Changes the default status text. This is the first line in the embed, the
+    # second line is controlled by the lines in babble.first-person.
+    status: Stroking their brains out~
+
+  # Sends system notifications
+  notifs:
+    enabled: false
+    rate: 15000
+
+  # Automatically types for you
+  typing:
+    enabled: false
+    rate: 120000
+    # Whether it should press enter for you, too.
+    press-enter: false
+  
+  # Overwrites your clipboard
+  clipboard:
+    enabled: false
+    rate: 10000
+
+  # Changes your wallpaper
+  # When exiting Goonto cleanly (with the exit keybind), your original wallpaper
+  # will be restored.
+  wallpaper:
+    enabled: false
+    rate: 10000
+
+# Strings to use for notifications, typing, and clipboard text.
+# If this is empty, a default list is used. Otherwise, only these strings are used.
+babble:
+  # These are from the perspective of the user - used for typing and Discord rich
+  # presence.
+  first-person:
+   - Thank you for existing, Furry Porn.
+   - I am so fucking horny right now...
+  # - I'm addicted to the feeling of letting go and giving into my desires.
+
+  # These are from the perspective of somebody talking to the user - used for
+  # notifications and the clipboard.
+  third-person:
+  # - Your body is a temple for PORN, worship it and be consumed by it.
+  # - Don't cum, be a good pump puppy.
+  # - Don't think, just pump. Porn is your master now.
